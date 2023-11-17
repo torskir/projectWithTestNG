@@ -1,5 +1,6 @@
 package example.example.tests;
 
+import example.example.context.Constants;
 import example.example.context.WebDriverContext;
 import example.example.listeners.LogListener;
 import example.example.listeners.ReportListener;
@@ -7,6 +8,8 @@ import example.example.util.LoggerUtil;
 import example.example.util.TestProperties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -68,33 +71,33 @@ public class BaseTest {
 	@BeforeClass
 	protected void setup() {
 
-//		//chrome
-//		System.setProperty("webdriver.fd.driver", Constants.CHROME_DRIVER_PATH);
-//
-//
-//        ChromeOptions ops = new ChromeOptions();
-//		ops.addArguments("disable-infobars");
-//		driver = new ChromeDriver(ops);
-//		driver.manage().window().maximize();
-//		WebDriverContext.setDriver(driver);
+		//chrome
+		System.setProperty("webdriver.fd.driver", Constants.CHROME_DRIVER_PATH);
 
 
-
-		// Set the path of GeckoDriver
-		System.setProperty("webdriver.gecko.driver",
-				"C:\\Users\\Administrator\\IdeaProjects\\selenium-testng-framework\\src\\test\\resources\\drivers\\geckodriver.exe");
-
-		// Create an object of Firefox Options class
-		FirefoxOptions options = new FirefoxOptions();
-
-
-
-		// Create an object of WebDriver class and pass the Firefox Options object
-		// as an argument
-		driver = new FirefoxDriver(options);
-				driver.manage().window().maximize();
-
+        ChromeOptions ops = new ChromeOptions();
+		ops.addArguments("disable-infobars");
+		driver = new ChromeDriver(ops);
+		driver.manage().window().maximize();
 		WebDriverContext.setDriver(driver);
+
+
+//
+//		// Set the path of GeckoDriver
+//		System.setProperty("webdriver.gecko.driver",
+//				"C:\\Users\\Administrator\\IdeaProjects\\selenium-testng-framework\\src\\test\\resources\\drivers\\geckodriver.exe");
+//
+//		// Create an object of Firefox Options class
+//		FirefoxOptions options = new FirefoxOptions();
+//
+//
+//
+//		// Create an object of WebDriver class and pass the Firefox Options object
+//		// as an argument
+//		driver = new FirefoxDriver(options);
+//				driver.manage().window().maximize();
+//
+//		WebDriverContext.setDriver(driver);
 
 
 
